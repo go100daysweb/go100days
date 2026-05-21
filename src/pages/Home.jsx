@@ -174,7 +174,7 @@ export default function Home() {
 
       <section className="py-24 bg-[#e7e7e7] dark:bg-[#121212] text-black dark:text-white border-y border-[#d0d0d0] dark:border-neutral-900 overflow-hidden relative z-10">
         <div className="max-w-7xl mx-auto px-6 mb-12">
-          <h2 className="text-sm font-bold tracking-widest text-neutral-500 dark:text-neutral-400 uppercase">OUR SUCCESS STORIES</h2>
+          <h2 className="text-sm font-bold tracking-widest uppercase" style={{color: '#14b5bc'}}>OUR BRANDS</h2>
         </div>
         <Marquee logos={clientLogos} direction="left" />
       </section>
