@@ -24,7 +24,7 @@ export default function HeroVisual() {
         minWidth: 200.0,
         scale: 1.0,
         scaleMobile: 1.0,
-        color: theme === 'dark' ? 0x3a3a3a : 0x777777,
+        color: theme === 'dark' ? 0x050505 : 0x777777,
         backgroundColor: theme === 'dark' ? 0x000000 : 0xffffff,
         shininess: 30.00,
         waveHeight: 18.00,

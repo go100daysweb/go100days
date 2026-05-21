@@ -1,4 +1,4 @@
-export default function ArrowIcon({ size = 14, className = '' }) {
+export default function ArrowIcon({ size = 14, className = '', color = '#14b5bc' }) {
   return (
     <svg
       width={size}
@@ -10,7 +10,7 @@ export default function ArrowIcon({ size = 14, className = '' }) {
     >
       <path
         d="M1.5 12.5L12.5 1.5M12.5 1.5H5M12.5 1.5V9"
-        stroke="#14b5bc"
+        stroke={color}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

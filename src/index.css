@@ -4,6 +4,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+
   body {
     @apply transition-colors duration-300 bg-white text-black dark:bg-black dark:text-white;
   }

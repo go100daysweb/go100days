@@ -71,9 +71,9 @@ export default function Navbar() {
 
             <Link
               to="/contact"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-neutral-200 hover:bg-neutral-300 text-black dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-white transition-colors"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-[#14b5bc] hover:bg-[#12a3a9] text-white transition-colors"
             >
-              Get in Touch <ArrowIcon size={13} />
+              Get in Touch <ArrowIcon size={13} color="black" />
             </Link>
 
             <button
@@ -125,9 +125,9 @@ export default function Navbar() {
             <Link
               to="/contact"
               onClick={() => setMobileOpen(false)}
-              className="mt-8 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-base font-medium bg-black text-white dark:bg-white dark:text-black"
+              className="mt-8 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-base font-medium bg-[#14b5bc] hover:bg-[#12a3a9] text-white transition-colors"
             >
-              Get in Touch <ArrowIcon size={13} />
+              Get in Touch <ArrowIcon size={13} color="black" />
             </Link>
           </div>
         </div>

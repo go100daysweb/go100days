@@ -92,10 +92,10 @@ export default function Home() {
             className="flex flex-col items-start max-w-4xl"
           >
             <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[1.05] mb-8 text-black dark:text-white">
-              Drive D2C growth in 100Days
+              Drive D2C growth in <span style={{color: '#14b5bc', fontSize: '1.2em', fontWeight: 900}}>100Days</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-black dark:text-neutral-300 max-w-2xl font-light leading-relaxed mb-12">
+            <p className="text-xl md:text-2xl text-black dark:text-white max-w-2xl font-light leading-relaxed mb-12">
               We are a new-age digital commerce partner who will take full ownership of your P&L. We're not talking only ads and website, we mean running your entire revenue engine.
             </p>
 
@@ -103,11 +103,11 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate('/contact')}
-              className="rounded-full px-8 py-5 text-lg font-medium flex items-center gap-4 group bg-black hover:bg-neutral-800 text-white dark:bg-white dark:hover:bg-neutral-200 dark:text-black shadow-xl transition-colors"
+              className="rounded-full px-8 py-5 text-lg font-medium flex items-center gap-4 group bg-[#14b5bc] hover:bg-[#12a3a9] text-white shadow-xl transition-colors"
             >
               Let's Build Your 100Days Plan
-              <div className="w-8 h-8 rounded-full bg-white/20 dark:bg-black/10 flex items-center justify-center group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
-                <svg className="w-4 h-4 text-[#14b5bc]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
+                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
               </div>
@@ -133,7 +133,7 @@ export default function Home() {
       <section className="py-24 max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="mb-16">
           <p className="text-xs font-bold tracking-widest uppercase text-[#14b5bc] mb-4">Our Approach</p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter leading-[1.05] text-black dark:text-white mb-4">Why 100Days Works</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter leading-[1.05] text-black dark:text-white mb-4">Why <span style={{color: '#14b5bc'}}>100Days</span> Works</h2>
           <p className="text-xl md:text-2xl text-black dark:text-neutral-300 font-light leading-relaxed max-w-2xl">
             We don't consult. We co-own — embedding inside your business as operators, not advisors.
           </p>
