@@ -35,6 +35,12 @@ export default function Services() {
       desc: "Performance-led creative systems built to scale paid media sustainably.",
       features: ["Studio video production", "UGC video ads creator models", "Static graphic ad design", "A/B copy and asset testing"],
       img: "creative & content.png"
+    },
+    {
+      title: "Warehousing & Logistics",
+      desc: "End-to-end storage, dispatch, and last-mile delivery infrastructure built for D2C brands that need speed, accuracy, and scale.",
+      features: ["Pan-India warehouse network", "Same-day & next-day dispatch SLAs", "Real-time inventory management", "Returns processing & reconciliation"],
+      img: "warehouse.png"
     }
   ];
 

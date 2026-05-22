@@ -10,6 +10,7 @@ const navLinks = [
   { path: '/services', label: 'Services' },
   { path: '/portfolio', label: 'Portfolio' },
   { path: '/blogs', label: 'Blogs' },
+  { path: '/ai-scan', label: 'AI Scan', highlight: true },
 ];
 
 export default function Navbar() {
@@ -37,6 +38,18 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
+              if (link.highlight) {
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="flex items-center gap-1.5 text-sm font-bold px-3 py-1 rounded-full border border-[#14b5bc] text-[#14b5bc] hover:bg-[#14b5bc] hover:text-white transition-all duration-200"
+                  >
+                    <span className="w-1.5 h-1.5 bg-[#14b5bc] rounded-full animate-pulse" />
+                    {link.label}
+                  </Link>
+                );
+              }
               return (
                 <Link
                   key={link.path}

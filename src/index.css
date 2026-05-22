@@ -34,3 +34,10 @@
     transition: background-color 9999s ease-in-out 0s;
   }
 }
+
+@media print {
+  body * { visibility: hidden; }
+  #ai-report, #ai-report * { visibility: visible; }
+  #ai-report { position: absolute; top: 0; left: 0; width: 100%; }
+  nav, footer, button { display: none !important; }
+}

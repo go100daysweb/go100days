@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import Marquee from '../components/ui/Marquee';
+import BrandPhoneMarquee from '../components/ui/BrandPhoneMarquee';
 import ArrowIcon from '../components/ui/ArrowIcon';
 import Button from '../components/ui/Button';
 
@@ -42,6 +43,11 @@ export default function Home() {
       title: "Creative & Content",
       desc: "Performance-led creative systems built to scale paid media sustainably.",
       img: "creative & content.png"
+    },
+    {
+      title: "Warehousing & Logistics",
+      desc: "End-to-end storage, dispatch, and last-mile delivery infrastructure built for D2C brands that need speed, accuracy, and scale.",
+      img: "warehouse.png"
     }
   ];
 
@@ -179,6 +185,17 @@ export default function Home() {
         <Marquee logos={clientLogos} direction="left" />
       </section>
 
+      <section className="py-16 overflow-hidden relative z-10">
+        <div className="max-w-7xl mx-auto px-6 mb-10">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{color: '#14b5bc'}}>Live Storefronts</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-black dark:text-white">
+            We don't just manage brands.{' '}
+            <span style={{color: '#14b5bc'}}>We scale them.</span>
+          </h2>
+        </div>
+        <BrandPhoneMarquee />
+      </section>
+
       <section className="py-24 max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter leading-[1.05] text-black dark:text-white mb-4">Services Blueprint</h2>
@@ -186,19 +203,6 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {renderServiceCards()}
-          <Link to="/services" className="group relative p-8 bg-neutral-100/60 dark:bg-neutral-900/60 border border-neutral-200 dark:border-neutral-800 hover:bg-[#e7e7e7] dark:hover:bg-[#1a1a1a] transition-all duration-500 rounded-[2rem] flex flex-col justify-between min-h-[380px] shadow-sm overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]" />
-            <div className="flex flex-col justify-end h-full">
-              <p className="text-xl md:text-2xl font-medium tracking-tight text-neutral-800 dark:text-neutral-200 mb-8 max-w-[220px] leading-snug">
-                Would to like to know more about our services
-              </p>
-              <div className="text-left">
-                <span className="inline-flex items-center gap-2 text-lg font-bold tracking-tight text-black dark:text-white group-hover:translate-x-1 transition-transform duration-300">
-                  Know More <ArrowIcon size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </span>
-              </div>
-            </div>
-          </Link>
         </div>
       </section>
 

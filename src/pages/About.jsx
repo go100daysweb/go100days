@@ -3,29 +3,26 @@ import { motion } from 'framer-motion';
 export default function About() {
   const timeline = [
     {
-      text: "At 100Days.co, we are Digital Commerce Experts who believe it takes just 100 days to build a functional, scalable, and growth-ready digital presence—and we make that happen.",
+      heading: "How We Started",
+      text: "Founded by the team behind Bombay Shaving Company and Bombae, 100Days was incepted to help investor brands accelerate online revenue with precision. With over 50 years of combined experience, we manage 10+ DTC stores across diverse sectors with powerful in-house digital tools and content.",
       img: "1.png",
       span: "md:col-span-2",
       layout: "flex-col lg:flex-row"
     },
     {
-      text: "Founded in 2021 by the core team at Bombay Shaving Company, 100Days.co began as a growth initiative to support investor brands. What started as a support function quickly evolved into a full-stack execution powerhouse, built to help established consumer brands navigate the complexities of going direct.",
+      heading: "Our Mission Today",
+      text: "We believe in cutting straight to the point, so in simple terms - our mission is to help and enable modern-day brands build digital commerce excellence. Scaling with success and without excuses is our bottom line.",
       img: "2.png",
       span: "col-span-1",
       layout: "flex-col"
     },
     {
-      text: "As the D2C and digital commerce landscape grew more competitive, we stepped in—not just with strategic guidance, but with end-to-end execution across websites, ads, CRM, warehousing, analytics, and more. Our team brings speed, precision, and platform expertise to every engagement.",
+      heading: "Quietly Building Giants",
+      text: "The team behind 100Days has been quietly has been helping us cumulatively generate colossal numbers.",
       img: "3.png",
       span: "col-span-1",
       layout: "flex-col-reverse"
     },
-    {
-      text: "Today, we power the digital growth journeys of some of India's most trusted consumer brands—including Durex, Colgate, Avon, Jimmy's Cocktails, and many more. We don't just advise. We launch, operate, and scale—with a bias for action and a passion for outcomes.",
-      img: "/about-growth.svg",
-      span: "md:col-span-2",
-      layout: "flex-col lg:flex-row-reverse"
-    }
   ];
 
   const renderTimeline = () => {
@@ -41,6 +38,9 @@ export default function About() {
           className={`group relative overflow-hidden rounded-[2.5rem] bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/60 dark:border-neutral-800/60 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors duration-500 flex ${timeline[i].layout} ${timeline[i].span} gap-8 p-10 md:p-14`}
         >
           <div className="flex-1 flex flex-col justify-center">
+            {timeline[i].heading && (
+              <p className="text-xs font-bold tracking-widest uppercase mb-3" style={{color: '#14b5bc'}}>{timeline[i].heading}</p>
+            )}
             <p className="text-xl md:text-2xl leading-relaxed text-neutral-600 dark:text-neutral-400 font-medium">
               {timeline[i].text}
             </p>
@@ -85,6 +85,46 @@ export default function About() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 relative z-10">
         {renderTimeline()}
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-neutral-200 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden mt-16">
+        {[
+          { value: '₹1000 Cr', label: 'GMV on QComm' },
+          { value: '12 Cr', label: 'Annual D2C Visitors' },
+          { value: '50 Cr', label: 'Annual Reach' },
+          { value: '60L', label: 'Annual Shipments' },
+        ].map((stat) => (
+          <div key={stat.label} className="bg-white dark:bg-black px-8 py-8 flex flex-col gap-1">
+            <p className="text-3xl md:text-4xl font-bold tracking-tight text-black dark:text-white">{stat.value}</p>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-16 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black">
+        <div className="px-8 py-6 border-b border-neutral-200 dark:border-neutral-800">
+          <h2 className="text-lg font-bold text-neutral-900 dark:text-white">Why choose us?</h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-200 dark:divide-neutral-800">
+          {[
+            {
+              title: 'One Unified Team',
+              desc: 'No demarcation, only ownership. The CEO never knows who the client is, and who is from 100Days.',
+            },
+            {
+              title: 'Entire P&L Ownership',
+              desc: 'We measure our success basis the overall P&L delivery, not just performance metrics.',
+            },
+            {
+              title: 'Accountability = Growth',
+              desc: "We give our clients total and constant access to business because we know real growth doesn't start in silos.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="px-8 py-8 flex flex-col gap-3">
+              <h3 className="text-base font-bold text-neutral-900 dark:text-white">{item.title}</h3>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
