@@ -15,7 +15,7 @@ import CustomCursor from './components/ui/CustomCursor';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-black dark:bg-black dark:text-white font-sans relative cursor-none">
+    <div className="min-h-screen flex flex-col bg-white text-black dark:bg-black dark:text-white font-sans relative">
       <CustomCursor />
       <HeroVisual />
       <ScrollToTop />

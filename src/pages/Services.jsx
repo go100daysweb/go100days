@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Services() {
   const [activeImage, setActiveImage] = useState('revenue strategy.png');
-  const [hoveredIndex, setHoveredIndex] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(-1);
 
   const services = [
     {
@@ -37,9 +37,9 @@ export default function Services() {
       img: "creative & content.png"
     },
     {
-      title: "Warehousing & Logistics",
-      desc: "End-to-end storage, dispatch, and last-mile delivery infrastructure built for D2C brands that need speed, accuracy, and scale.",
-      features: ["Pan-India warehouse network", "Same-day & next-day dispatch SLAs", "Real-time inventory management", "Returns processing & reconciliation"],
+      title: "Warehouse & Distribution",
+      desc: "End-to-end management across warehouse, operations, and delivery.",
+      features: ["Infrastructure & inventory support", "Operations & workforce support", "Quality control & replenishment", "Delivery management"],
       img: "warehouse.png"
     }
   ];
@@ -79,6 +79,12 @@ export default function Services() {
             setActiveImage(services[i].img);
             setHoveredIndex(i);
           }}
+          onMouseLeave={() => setHoveredIndex(-1)}
+          onClick={() => {
+            const next = hoveredIndex === i ? -1 : i;
+            setHoveredIndex(next);
+            if (next !== -1) setActiveImage(services[next].img);
+          }}
         >
           <div className="relative z-10 flex flex-col gap-4">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tighter text-black dark:text-white">{services[i].title}</h2>
@@ -91,6 +97,14 @@ export default function Services() {
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 >
+                  {/* Image — mobile only, shown inside expanded card */}
+                  <div className="lg:hidden w-full h-48 rounded-xl overflow-hidden mb-6">
+                    <img
+                      src={`/Services thumbnails/${services[i].img}`}
+                      alt={services[i].title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed text-lg border-b border-neutral-200 dark:border-neutral-800 pb-6">
                     {services[i].desc}
                   </p>
@@ -110,7 +124,7 @@ export default function Services() {
   return (
     <div className="w-full max-w-7xl mx-auto px-6 py-24 relative min-h-screen">
       <div className="mb-16">
-        <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[1.05] text-black dark:text-white">Services</h1>
+        <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[1.05] text-black dark:text-white">Our Capabilities</h1>
         <p className="text-xl md:text-2xl text-black dark:text-neutral-300 font-light leading-relaxed mt-6 max-w-xl">High-performance operating lanes designed to launch, scale, and dominate across the digital commerce landscape.</p>
       </div>
       

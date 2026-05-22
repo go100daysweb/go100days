@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const clients = [
@@ -16,14 +17,12 @@ const clients = [
   { logo: 'black-logo.png',         brand: 'Nxtface',      category: 'Skincare',          metric: 'Revenue Growth',          channel: 'Performance Marketing', darkInvert: true },
 ];
 
-// 13 tiles in a 5-col grid: rows 1–2 are full (10 tiles), last row has 3
-// placed at columns 1, 3, 5 with gaps at 2 and 4
 const lastRowColStart = ['lg:col-start-1', 'lg:col-start-3', 'lg:col-start-5'];
 
 function getTileClasses(index, total) {
   const base =
     'group relative overflow-hidden rounded-2xl aspect-square bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors duration-300 cursor-pointer';
-  const lastRowStart = total - (total % 5 || 5); // index where last partial row begins
+  const lastRowStart = total - (total % 5 || 5);
   if (index >= lastRowStart && total % 5 !== 0) {
     const posInRow = index - lastRowStart;
     return `${base} ${lastRowColStart[posInRow] ?? ''}`;
@@ -32,6 +31,12 @@ function getTileClasses(index, total) {
 }
 
 export default function Portfolio() {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const handleTap = (i) => {
+    setActiveIndex(prev => prev === i ? null : i);
+  };
+
   return (
     <div className="w-full max-w-7xl mx-auto px-6 py-24 min-h-screen">
       <motion.div
@@ -48,16 +53,19 @@ export default function Portfolio() {
       </motion.div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        {clients.map((client, i) => (
+        {clients.map((client, i) => {
+          const isActive = activeIndex === i;
+          return (
             <motion.div
               key={client.brand}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: i * 0.04 }}
               className={getTileClasses(i, clients.length)}
+              onClick={() => handleTap(i)}
             >
               {/* Logo layer */}
-              <div className="absolute inset-0 flex items-center justify-center p-6 transition-transform duration-500 group-hover:scale-90 group-hover:opacity-0">
+              <div className={`absolute inset-0 flex items-center justify-center p-6 transition-transform duration-500 group-hover:scale-90 group-hover:opacity-0 ${isActive ? 'scale-90 opacity-0' : ''}`}>
                 <div className={client.darkInvert ? 'dark:bg-white dark:rounded-xl dark:px-3 dark:py-2' : ''}>
                   <img
                     src={`/Client Logos/Coloured/${client.logo}`}
@@ -67,8 +75,8 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Hover overlay — slides up from bottom */}
-              <div className="absolute inset-0 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end p-5 rounded-2xl">
+              {/* Detail overlay — slides up from bottom on hover or tap */}
+              <div className={`absolute inset-0 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 transition-transform duration-500 ease-out flex flex-col justify-end p-5 rounded-2xl group-hover:translate-y-0 ${isActive ? 'translate-y-0' : 'translate-y-full'}`}>
                 <span className="text-[10px] font-bold tracking-widest uppercase text-[#14b5bc] mb-2">
                   {client.category}
                 </span>
@@ -83,7 +91,8 @@ export default function Portfolio() {
                 </div>
               </div>
             </motion.div>
-          ))}
+          );
+        })}
       </div>
     </div>
   );

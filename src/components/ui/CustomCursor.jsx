@@ -1,21 +1,33 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+function detectTouch() {
+  return (
+    window.matchMedia('(pointer: coarse)').matches ||
+    window.matchMedia('(hover: none)').matches
+  );
+}
+
 export default function CustomCursor() {
   const [pos, setPos] = useState({ x: -200, y: -200 });
   const [hovered, setHovered] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [isTouch, setIsTouch] = useState(detectTouch);
+
+  // Catch any touch event that slips past the initial detection
+  useEffect(() => {
+    const handleTouch = () => setIsTouch(true);
+    window.addEventListener('touchstart', handleTouch, { once: true, passive: true });
+    return () => window.removeEventListener('touchstart', handleTouch);
+  }, []);
 
   useEffect(() => {
+    if (isTouch) return;
     const move = (e) => setPos({ x: e.clientX, y: e.clientY });
     const enter = () => setHidden(false);
     const leave = () => setHidden(true);
-    const over = (e) => {
-      if (e.target.closest('a, button, [data-cursor]')) setHovered(true);
-    };
-    const out = (e) => {
-      if (e.target.closest('a, button, [data-cursor]')) setHovered(false);
-    };
+    const over = (e) => { if (e.target.closest('a, button, [data-cursor]')) setHovered(true); };
+    const out  = (e) => { if (e.target.closest('a, button, [data-cursor]')) setHovered(false); };
     window.addEventListener('mousemove', move);
     document.addEventListener('mouseenter', enter);
     document.addEventListener('mouseleave', leave);
@@ -28,7 +40,9 @@ export default function CustomCursor() {
       document.removeEventListener('mouseover', over);
       document.removeEventListener('mouseout', out);
     };
-  }, []);
+  }, [isTouch]);
+
+  if (isTouch) return null;
 
   return (
     <>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
-  { path: '/services', label: 'Services' },
+  { path: '/services', label: 'Capabilities' },
   { path: '/portfolio', label: 'Portfolio' },
   { path: '/blogs', label: 'Blogs' },
   { path: '/contact', label: 'Contact' },
@@ -101,7 +101,7 @@ export default function Footer() {
         {/* Services links */}
         <div>
           <p className="text-xs font-bold tracking-widest uppercase text-[#14b5bc] mb-6">
-            Services
+            Capabilities
           </p>
           <ul className="space-y-3">
             {services.map((s) => (

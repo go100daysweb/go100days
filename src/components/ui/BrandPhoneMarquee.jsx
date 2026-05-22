@@ -45,13 +45,13 @@ function PhoneFrame({ brand, labelBottom, overlayColor, theme }) {
         }}
       >
         {/* Volume up */}
-        <div style={{ position: 'absolute', left: '-3px', top: '72px', width: '3px', height: '26px', background: 'linear-gradient(180deg,#b0b0b8,#8e8e96)', borderRadius: '3px 0 0 3px' }} />
+        <div style={{ position: 'absolute', left: '-3px', top: '72px', width: '3px', height: '26px', background: theme === 'dark' ? 'linear-gradient(180deg,#b0b0b8,#8e8e96)' : 'linear-gradient(180deg,#2a2a2a,#111)', borderRadius: '3px 0 0 3px' }} />
         {/* Volume down */}
-        <div style={{ position: 'absolute', left: '-3px', top: '106px', width: '3px', height: '26px', background: 'linear-gradient(180deg,#b0b0b8,#8e8e96)', borderRadius: '3px 0 0 3px' }} />
+        <div style={{ position: 'absolute', left: '-3px', top: '106px', width: '3px', height: '26px', background: theme === 'dark' ? 'linear-gradient(180deg,#b0b0b8,#8e8e96)' : 'linear-gradient(180deg,#2a2a2a,#111)', borderRadius: '3px 0 0 3px' }} />
         {/* Mute toggle */}
-        <div style={{ position: 'absolute', left: '-3px', top: '50px', width: '3px', height: '16px', background: 'linear-gradient(180deg,#b0b0b8,#8e8e96)', borderRadius: '3px 0 0 3px' }} />
+        <div style={{ position: 'absolute', left: '-3px', top: '50px', width: '3px', height: '16px', background: theme === 'dark' ? 'linear-gradient(180deg,#b0b0b8,#8e8e96)' : 'linear-gradient(180deg,#2a2a2a,#111)', borderRadius: '3px 0 0 3px' }} />
         {/* Power button */}
-        <div style={{ position: 'absolute', right: '-3px', top: '90px', width: '3px', height: '40px', background: 'linear-gradient(180deg,#b0b0b8,#8e8e96)', borderRadius: '0 3px 3px 0' }} />
+        <div style={{ position: 'absolute', right: '-3px', top: '90px', width: '3px', height: '40px', background: theme === 'dark' ? 'linear-gradient(180deg,#b0b0b8,#8e8e96)' : 'linear-gradient(180deg,#2a2a2a,#111)', borderRadius: '0 3px 3px 0' }} />
 
         {/* Screen */}
         <div

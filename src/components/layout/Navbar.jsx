@@ -7,7 +7,7 @@ import ArrowIcon from '../ui/ArrowIcon';
 const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/about', label: 'About' },
-  { path: '/services', label: 'Services' },
+  { path: '/services', label: 'Capabilities' },
   { path: '/portfolio', label: 'Portfolio' },
   { path: '/blogs', label: 'Blogs' },
   { path: '/ai-scan', label: 'AI Scan', highlight: true },
