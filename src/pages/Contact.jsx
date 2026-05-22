@@ -58,18 +58,19 @@ export default function Contact() {
 
   return (
     <div className="w-full max-w-7xl mx-auto px-6 py-24 min-h-[90vh] flex items-center relative z-10 animate-fade-in">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start w-full">
-        <div className="lg:col-span-5 flex flex-col justify-between h-full">
-          <div>
-            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[1.05] text-black dark:text-white mb-8">
-              Let's Connect
-            </h1>
-            <p className="text-xl md:text-2xl text-black dark:text-neutral-300 font-light leading-relaxed mb-12">
-              We'd love to hear from you. Whether you have questions, feedback, or partnership ideas—our team is here to help. Reach out and we'll get back to you as soon as possible.
-            </p>
-          </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-[auto_1fr] gap-x-16 gap-y-8 lg:gap-y-12 items-start w-full">
+        {/* Heading — top on both mobile and desktop */}
+        <div className="lg:col-span-5 lg:row-start-1 order-1">
+          <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[1.05] text-black dark:text-white mb-8">
+            Let's Connect
+          </h1>
+          <p className="text-xl md:text-2xl text-black dark:text-neutral-300 font-light leading-relaxed">
+            We'd love to hear from you. Whether you have questions, feedback, or partnership ideas—our team is here to help. Reach out and we'll get back to you as soon as possible.
+          </p>
+        </div>
 
-          <div className="space-y-6">
+        {/* Contact info — below form on mobile, bottom-left on desktop */}
+        <div className="lg:col-span-5 lg:row-start-2 order-3 space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-[#14b5bc] flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -117,10 +118,10 @@ export default function Contact() {
                 </a>
               </div>
             </div>
-          </div>
         </div>
 
-        <div className="lg:col-span-7 w-full">
+        {/* Form — second on mobile, right column spanning both rows on desktop */}
+        <div className="lg:col-span-7 lg:row-span-2 lg:row-start-1 w-full order-2">
           <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-xl rounded-3xl p-8 sm:p-10">
             <h2 className="text-3xl font-bold mb-2 text-black dark:text-white">Get in Touch with Us</h2>
             <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-8">
