@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API = 'http://localhost:3001/api';
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 const SCAN_STEPS = [
   'Fetching page & taking screenshot…',
